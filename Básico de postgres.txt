@@ -1,0 +1,53 @@
+** Cria Tabelas **
+
+create table Categorias (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(90) NOT NULL UNIQUE,
+);
+
+create table Lojas (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR NOT NULL,
+	valor_patrimonio decimal (10, 3) NOT NULL
+);
+
+create table Produtos (
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(90) NOT NULL,
+	descricao TEXT,
+	quantidade INT NOT NULL,
+	categoria_id INT,
+	preco DECIMAL(10, 2) NOT NULL,
+);
+
+insert into Produtos (nome, descricao, quantidade, preco, id_categoria, no_categoria, no_loja) values 
+	('Lápis', 'lápis grafite n 2-0',1000,1.20, (SELECT id FROM Categorias WHERE nome = 'Estudantes'),'Estudantes', 'Sua Escola, sua casa');
+
+
+**-----------------**
+** Atualiza dados **
+
+UPDATE Produtos
+	SET no_loja = 'Casa do eletrônico'
+	WHERE no_loja = 'Casa do eletrônco';
+
+** Cria coluna **
+
+alter table Lojas
+	ADD COLUMN valor_produtos VARCHAR;
+
+** Soma produtos relacionados a uma categoria e adiciona em outra tabela **
+
+SELECT SUM(preco) as total
+	from Produtos
+	WHERE id_categoria = 2;
+
+UPDATE Lojas
+SET valor_produtos = (
+	SELECT SUM(preco)
+	FROM Produtos
+	WHERE no_loja = 'Casa do eletrônico'
+	)
+WHERE id = 1;
+
+**------------------**
