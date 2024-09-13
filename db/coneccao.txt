@@ -1,0 +1,10 @@
+Conectar com o banco de dados através do settings da aplicação
+
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'estudo_postgres',
+        'USER': 'postgres',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
