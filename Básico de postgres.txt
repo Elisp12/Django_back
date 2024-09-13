@@ -57,3 +57,11 @@ SELECT INTO tabela_recebe_dados
 	FROM tabela_busca_dados
 
 **------------------**
+
+** Left join, comparando dados **
+
+SELECT *
+	FROM Produtos p
+	LEFT JOIN Lista_Produto lp
+	ON p.nome = lp.nome AND p.descricao = lp.descricao
+	WHERE lp.nome IS NOT NULL;
