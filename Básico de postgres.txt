@@ -50,4 +50,10 @@ SET valor_produtos = (
 	)
 WHERE id = 1;
 
+** Busca dados na tabela e inseri em outra **
+
+SELECT INTO tabela_recebe_dados
+	SELECT nome, descricao
+	FROM tabela_busca_dados
+
 **------------------**
