@@ -72,5 +72,11 @@ UPDATE Lista_produto lp -- atualiza tabela
 	SET preco = p.preco -- na coluna preço recebe coluna de outra tabela 
 	FROM Produtos p -- outra tabela
 	WHERE lp.nome = p.nome; -- filtra os dados iguais entre elas 
+
+** Atualiza coluna dado boleano **
+
+UPDATE Lista_produto -- A coluna is_ativo recebe true onde os dados da coluna preço não for nulo
+	SET is_ativo = true
+	WHERE preco IS NOT NULL;
 	
 
