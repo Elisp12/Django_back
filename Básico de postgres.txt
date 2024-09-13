@@ -65,3 +65,12 @@ SELECT *
 	LEFT JOIN Lista_Produto lp
 	ON p.nome = lp.nome AND p.descricao = lp.descricao
 	WHERE lp.nome IS NOT NULL;
+
+** Atualiza coluna na tabela 'Lista_produto' com os valores da tabela 'Produtos' **
+
+UPDATE Lista_produto lp -- atualiza tabela
+	SET preco = p.preco -- na coluna preço recebe coluna de outra tabela 
+	FROM Produtos p -- outra tabela
+	WHERE lp.nome = p.nome; -- filtra os dados iguais entre elas 
+	
+
