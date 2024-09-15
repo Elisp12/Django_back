@@ -6,6 +6,30 @@
     <title>Estudos</title>
 </head>
 <body>
-    'Hello World!'
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                {% for lista in lista_produto %}
+                    <tr>
+                        <td> {{ lista.nome }} </td>
+                        <td> {{ lista.descricao }} </td>
+                        <td> {{ lista.preco }} </td>
+                        {% if lista.is_ativo %}
+                            <td> Ativo </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
