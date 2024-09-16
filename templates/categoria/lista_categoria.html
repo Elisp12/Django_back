@@ -1,0 +1,19 @@
+<div></div>
+    <table>
+        <thead>
+            <tr>
+                <th> Nome </th>
+                <th> Loja </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for lista in lista_categoria %}
+                <tr>
+                    <td>{{ lista.nome }}</td>
+                    <td>{{ lista.no_loja }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
